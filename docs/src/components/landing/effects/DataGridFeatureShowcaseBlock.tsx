@@ -314,19 +314,15 @@ export default function DataGridFeatureShowcaseBlock() {
           sx={(theme) => ({
             overflow: 'hidden',
             borderRadius: premiumTokens.radius.xl,
-            borderColor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[300], 0.16)
-                : alpha(theme.palette.primary[100], 0.9),
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primaryDark[900], 0.9)
-                : alpha(theme.palette.common.white, 0.88),
+            borderColor: alpha(theme.palette.primary[100], 0.9),
+            bgcolor: alpha(theme.palette.common.white, 0.88),
             backdropFilter: 'blur(18px)',
-            boxShadow:
-              theme.palette.mode === 'dark'
-                ? `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`
-                : `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+            boxShadow: `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+            ...theme.applyStyles('dark', {
+              borderColor: alpha(theme.palette.primary[300], 0.16),
+              bgcolor: alpha(theme.palette.primaryDark[900], 0.9),
+              boxShadow: `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`,
+            }),
           })}
         >
           <Box sx={{ p: { xs: 2, md: 2.5 }, borderBottom: '1px solid', borderColor: 'divider' }}>
@@ -353,14 +349,12 @@ export default function DataGridFeatureShowcaseBlock() {
                     p: 0.5,
                     borderRadius: premiumTokens.radius.xl,
                     border: '1px solid',
-                    borderColor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.primary[300], 0.14)
-                        : alpha(theme.palette.primary[100], 0.9),
-                    bgcolor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.common.white, 0.03)
-                        : alpha(theme.palette.primary[50], 0.72),
+                    borderColor: alpha(theme.palette.primary[100], 0.9),
+                    bgcolor: alpha(theme.palette.primary[50], 0.72),
+                    ...theme.applyStyles('dark', {
+                      borderColor: alpha(theme.palette.primary[300], 0.14),
+                      bgcolor: alpha(theme.palette.common.white, 0.03),
+                    }),
                     '& .MuiTabs-list': {
                       gap: 0.75,
                     },
@@ -392,9 +386,10 @@ export default function DataGridFeatureShowcaseBlock() {
                               bgcolor:
                                 active === id
                                   ? 'primary.main'
-                                  : theme.palette.mode === 'dark'
-                                    ? alpha(theme.palette.common.white, 0.08)
-                                    : alpha(theme.palette.common.white, 0.92),
+                                  : alpha(theme.palette.common.white, 0.92),
+                              ...(active !== id && theme.applyStyles('dark', {
+                                bgcolor: alpha(theme.palette.common.white, 0.08),
+                              })),
                             })}
                           >
                             {index + 1}
@@ -416,14 +411,12 @@ export default function DataGridFeatureShowcaseBlock() {
                         transition: theme.transitions.create(['background-color', 'box-shadow', 'color']),
                         '&.Mui-selected': {
                           color: 'text.primary',
-                          bgcolor:
-                            theme.palette.mode === 'dark'
-                              ? alpha(theme.palette.primary[500], 0.18)
-                              : alpha(theme.palette.common.white, 0.96),
-                          boxShadow:
-                            theme.palette.mode === 'dark'
-                              ? `0 8px 24px ${alpha(theme.palette.common.black, 0.22)}`
-                              : `0 8px 24px ${alpha(theme.palette.primary[900], 0.08)}`,
+                          bgcolor: alpha(theme.palette.common.white, 0.96),
+                          boxShadow: `0 8px 24px ${alpha(theme.palette.primary[900], 0.08)}`,
+                          ...theme.applyStyles('dark', {
+                            bgcolor: alpha(theme.palette.primary[500], 0.18),
+                            boxShadow: `0 8px 24px ${alpha(theme.palette.common.black, 0.22)}`,
+                          }),
                         },
                       })}
                     />
@@ -617,11 +610,11 @@ function ScaleShowcase() {
                 width: '100%',
                 height: 8,
                 borderRadius: '999px',
-                bgcolor:
-                  theme.palette.mode === 'dark'
-                    ? alpha(theme.palette.common.white, 0.08)
-                    : alpha(theme.palette.primary[100], 0.6),
+                bgcolor: alpha(theme.palette.primary[100], 0.6),
                 overflow: 'hidden',
+                ...theme.applyStyles('dark', {
+                  bgcolor: alpha(theme.palette.common.white, 0.08),
+                }),
               })}
             >
               <Box
@@ -681,14 +674,12 @@ function ScaleShowcase() {
                 p: 1.5,
                 borderRadius: premiumTokens.radius.lg,
                 border: '1px solid',
-                borderColor:
-                  theme.palette.mode === 'dark'
-                    ? alpha(theme.palette.primary[300], 0.1)
-                    : alpha(theme.palette.primary[100], 0.75),
-                bgcolor:
-                  theme.palette.mode === 'dark'
-                    ? alpha(theme.palette.common.white, 0.02)
-                    : alpha(theme.palette.primary[50], 0.5),
+                borderColor: alpha(theme.palette.primary[100], 0.75),
+                bgcolor: alpha(theme.palette.primary[50], 0.5),
+                ...theme.applyStyles('dark', {
+                  borderColor: alpha(theme.palette.primary[300], 0.1),
+                  bgcolor: alpha(theme.palette.common.white, 0.02),
+                }),
               })}
             >
               <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary' }}>
@@ -876,10 +867,10 @@ function TreeDetailShowcase() {
           p: 2,
           display: 'grid',
           gap: 1.5,
-          background:
-            theme.palette.mode === 'dark'
-              ? alpha(theme.palette.common.white, 0.02)
-              : alpha(theme.palette.primary[50], 0.35),
+          background: alpha(theme.palette.primary[50], 0.35),
+          ...theme.applyStyles('dark', {
+            background: alpha(theme.palette.common.white, 0.02),
+          }),
         })}
       >
         <Typography sx={{ fontSize: 12, fontWeight: 700, color: 'text.secondary' }}>
@@ -997,14 +988,12 @@ function gridSurfaceSx(theme: any) {
   return {
     border: 0,
     '& .MuiDataGrid-columnHeaders': {
-      bgcolor:
-        theme.palette.mode === 'dark'
-          ? alpha(theme.palette.common.white, 0.02)
-          : alpha(theme.palette.primary[50], 0.6),
-      borderBottomColor:
-        theme.palette.mode === 'dark'
-          ? alpha(theme.palette.primary[300], 0.12)
-          : alpha(theme.palette.primary[100], 0.85),
+      bgcolor: alpha(theme.palette.primary[50], 0.6),
+      borderBottomColor: alpha(theme.palette.primary[100], 0.85),
+      ...theme.applyStyles('dark', {
+        bgcolor: alpha(theme.palette.common.white, 0.02),
+        borderBottomColor: alpha(theme.palette.primary[300], 0.12),
+      }),
     },
     '& .MuiDataGrid-columnHeaderTitle': {
       fontWeight: 700,
@@ -1024,14 +1013,12 @@ function sideCardSx(theme: any) {
     p: 1.5,
     borderRadius: premiumTokens.radius.lg,
     border: '1px solid',
-    borderColor:
-      theme.palette.mode === 'dark'
-        ? alpha(theme.palette.primary[300], 0.12)
-        : alpha(theme.palette.primary[100], 0.8),
-    bgcolor:
-      theme.palette.mode === 'dark'
-        ? alpha(theme.palette.common.white, 0.03)
-        : alpha(theme.palette.primary[50], 0.52),
+    borderColor: alpha(theme.palette.primary[100], 0.8),
+    bgcolor: alpha(theme.palette.primary[50], 0.52),
+    ...theme.applyStyles('dark', {
+      borderColor: alpha(theme.palette.primary[300], 0.12),
+      bgcolor: alpha(theme.palette.common.white, 0.03),
+    }),
   };
 }
 
@@ -1042,11 +1029,11 @@ function iconBadgeSx(theme: any) {
     borderRadius: '10px',
     display: 'grid',
     placeItems: 'center',
-    bgcolor:
-      theme.palette.mode === 'dark'
-        ? alpha(theme.palette.primary[500], 0.18)
-        : alpha(theme.palette.primary[50], 0.9),
+    bgcolor: alpha(theme.palette.primary[50], 0.9),
     color: 'primary.main',
+    ...theme.applyStyles('dark', {
+      bgcolor: alpha(theme.palette.primary[500], 0.18),
+    }),
   };
 }
 
@@ -1057,10 +1044,10 @@ function promptBubbleSx(theme: any) {
     borderRadius: '12px 12px 4px 12px',
     px: 1.5,
     py: 1.25,
-    bgcolor:
-      theme.palette.mode === 'dark'
-        ? alpha(theme.palette.primary[500], 0.18)
-        : alpha(theme.palette.primary[50], 1),
+    bgcolor: alpha(theme.palette.primary[50], 1),
+    ...theme.applyStyles('dark', {
+      bgcolor: alpha(theme.palette.primary[500], 0.18),
+    }),
   };
 }
 
@@ -1070,14 +1057,12 @@ function responseBubbleSx(theme: any) {
     borderRadius: '12px 12px 12px 4px',
     px: 1.5,
     py: 1.25,
-    bgcolor:
-      theme.palette.mode === 'dark'
-        ? alpha(theme.palette.common.white, 0.03)
-        : alpha(theme.palette.grey[50], 0.9),
+    bgcolor: alpha(theme.palette.grey[50], 0.9),
     border: '1px solid',
-    borderColor:
-      theme.palette.mode === 'dark'
-        ? alpha(theme.palette.primary[300], 0.12)
-        : alpha(theme.palette.primary[100], 0.8),
+    borderColor: alpha(theme.palette.primary[100], 0.8),
+    ...theme.applyStyles('dark', {
+      bgcolor: alpha(theme.palette.common.white, 0.03),
+      borderColor: alpha(theme.palette.primary[300], 0.12),
+    }),
   };
 }

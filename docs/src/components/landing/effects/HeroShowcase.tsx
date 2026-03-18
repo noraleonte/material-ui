@@ -44,10 +44,10 @@ export default function HeroShowcase() {
             border: '1px solid',
             borderColor: 'divider',
             animation: `${fadeInUp} 0.8s ease-out`,
-            background:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.background.paper, 0.6)
-                : alpha(theme.palette.background.paper, 0.8),
+            background: alpha(theme.palette.background.paper, 0.8),
+            ...theme.applyStyles('dark', {
+              background: alpha(theme.palette.background.paper, 0.6),
+            }),
             backdropFilter: 'blur(20px)',
           }),
         ]}

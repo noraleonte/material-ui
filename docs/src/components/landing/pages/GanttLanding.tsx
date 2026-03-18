@@ -10,7 +10,7 @@ import ZoomInRounded from '@mui/icons-material/ZoomInRounded';
 import EngineeringRounded from '@mui/icons-material/EngineeringRounded';
 import PrecisionManufacturingRounded from '@mui/icons-material/PrecisionManufacturingRounded';
 import ConstructionRounded from '@mui/icons-material/ConstructionRounded';
-import ComponentHeroBlock from 'docs/src/components/landing/ComponentHeroBlock';
+import ComponentHeroBlock from 'docs/src/components/landing/hero/ComponentHeroBlock';
 import LandingComponentNav from 'docs/src/components/landing/LandingComponentNav';
 import StubLandingBlock from 'docs/src/components/landing/StubLandingBlock';
 import { ganttConfig } from 'docs/src/components/landing/configs/stubConfigs';

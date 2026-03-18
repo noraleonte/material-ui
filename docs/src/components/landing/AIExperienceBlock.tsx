@@ -114,14 +114,12 @@ export default function AIExperienceBlock() {
                         flexDirection: 'column',
                         gap: 1.25,
                         borderRadius: premiumTokens.radius.lg,
-                        borderColor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.primary[300], 0.1)
-                            : alpha(theme.palette.primary[100], 0.75),
-                        bgcolor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.common.white, 0.03)
-                            : alpha(theme.palette.common.white, 0.86),
+                        borderColor: alpha(theme.palette.primary[100], 0.75),
+                        bgcolor: alpha(theme.palette.common.white, 0.86),
+                        ...theme.applyStyles('dark', {
+                          borderColor: alpha(theme.palette.primary[300], 0.1),
+                          bgcolor: alpha(theme.palette.common.white, 0.03),
+                        }),
                         boxShadow: 'none',
                         ...cardHoverSx(theme),
                       }),
@@ -137,10 +135,10 @@ export default function AIExperienceBlock() {
                           height: 40,
                           borderRadius: '10px',
                           color: (theme.vars || theme).palette.primary[700],
-                          bgcolor:
-                            theme.palette.mode === 'dark'
-                              ? alpha(theme.palette.primary[900], 0.34)
-                              : alpha(theme.palette.primary[100], 0.55),
+                          bgcolor: alpha(theme.palette.primary[100], 0.55),
+                          ...theme.applyStyles('dark', {
+                            bgcolor: alpha(theme.palette.primary[900], 0.34),
+                          }),
                           transition: motionTransition(['transform', 'background-color']),
                           '.MuiPaper-root:hover &': {
                             transform: 'scale(1.05)',

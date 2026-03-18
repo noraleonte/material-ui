@@ -9,8 +9,18 @@ docs/src/components/landing/
 ├── marketingTheme.ts          # Motion tokens, card styles, status config, section presets
 ├── StatusBadge.tsx            # Consistent status badges (Stable, Preview, Alpha, Coming soon)
 ├── SectionReveal.tsx          # Scroll-triggered fade+translate reveal (respects prefers-reduced-motion)
-├── HeroBlock.tsx              # Homepage hero with headline, gradient text, CTAs, optional visual
-├── ComponentHeroBlock.tsx     # Product page hero with status badge, centered layout
+├── hero/                      # Hero section components
+│   ├── HeroBlock.tsx          # Homepage hero with headline, gradient text, CTAs, optional visual
+│   ├── ComponentHeroBlock.tsx # Product page hero with status badge, centered layout
+│   ├── HeroRoot.tsx           # Styled root wrapper for homepage hero
+│   ├── HeroContentColumn.tsx  # Styled left content column
+│   ├── HeroOverline.tsx       # Styled overline pill badge
+│   ├── HeroHeadline.tsx       # Styled h1 headline
+│   ├── HeroDescription.tsx    # Styled description text
+│   ├── HeroCtaButton.tsx      # Styled CTA button with variant support
+│   ├── HeroVisualColumn.tsx   # Styled right visual column with parallax
+│   ├── HeroVisualGlow.tsx     # Styled glow effect behind visual
+│   └── ComponentHeroRoot.tsx  # Styled root wrapper for component page hero
 ├── TrustLogoCloudBlock.tsx    # Company logo grid with trust caption
 ├── PlatformLoopBlock.tsx      # "Design → Build → Start fast → Accelerate" 4-step loop
 ├── PlatformSuiteBlock.tsx     # Full platform overview (Core, Advanced, Design Kits, Templates, AI)

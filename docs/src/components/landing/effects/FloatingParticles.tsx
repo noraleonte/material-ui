@@ -54,10 +54,10 @@ export default function FloatingParticles() {
             width: p.size,
             height: p.size,
             borderRadius: '50%',
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? 'rgba(144, 202, 249, 0.4)'
-                : 'rgba(25, 118, 210, 0.25)',
+            bgcolor: 'rgba(25, 118, 210, 0.25)',
+            ...theme.applyStyles('dark', {
+              bgcolor: 'rgba(144, 202, 249, 0.4)',
+            }),
             animation: `${p.animation} ${p.duration}s ease-in-out infinite`,
           })}
         />

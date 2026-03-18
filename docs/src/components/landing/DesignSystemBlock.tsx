@@ -69,14 +69,12 @@ export default function DesignSystemBlock() {
                     flexDirection: 'column',
                     gap: 1.5,
                     borderRadius: premiumTokens.radius.lg,
-                    borderColor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.primary[300], 0.18)
-                        : alpha(theme.palette.primary[100], 0.85),
-                    bgcolor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.common.white, 0.03)
-                        : alpha(theme.palette.common.white, 0.9),
+                    borderColor: alpha(theme.palette.primary[100], 0.85),
+                    bgcolor: alpha(theme.palette.common.white, 0.9),
+                    ...theme.applyStyles('dark', {
+                      borderColor: alpha(theme.palette.primary[300], 0.18),
+                      bgcolor: alpha(theme.palette.common.white, 0.03),
+                    }),
                     transition: motionTransition(['transform', 'box-shadow', 'border-color']),
                     '&:hover': {
                       transform: 'translateY(-4px)',

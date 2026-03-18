@@ -30,15 +30,13 @@ export default function LandingComponentNav({ activeId }: LandingComponentNavPro
             overflowY: 'hidden',
             borderRadius: premiumTokens.radius.xl,
             border: '1px solid',
-            borderColor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[300], 0.14)
-                : alpha(theme.palette.primary[100], 0.9),
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.common.white, 0.03)
-                : alpha(theme.palette.common.white, 0.76),
-            boxShadow: premiumTokens.nav.surfaceShadow(theme),
+            borderColor: alpha(theme.palette.primary[100], 0.9),
+            bgcolor: alpha(theme.palette.common.white, 0.76),
+            ...theme.applyStyles('dark', {
+              borderColor: alpha(theme.palette.primary[300], 0.14),
+              bgcolor: alpha(theme.palette.common.white, 0.03),
+            }),
+            ...premiumTokens.nav.surfaceShadow(theme),
             backdropFilter: 'blur(16px)',
           })}
         >
@@ -67,34 +65,38 @@ export default function LandingComponentNav({ activeId }: LandingComponentNavPro
                     borderRadius: premiumTokens.radius.lg,
                     border: '1px solid',
                     borderColor: selected
-                      ? theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.primary[300], 0.2)
-                        : alpha(theme.palette.primary[100], 0.95)
+                      ? alpha(theme.palette.primary[100], 0.95)
                       : 'transparent',
                     bgcolor: selected
-                      ? theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.primary[500], 0.16)
-                        : alpha(theme.palette.common.white, 0.96)
+                      ? alpha(theme.palette.common.white, 0.96)
                       : 'transparent',
+                    ...theme.applyStyles('dark', {
+                      borderColor: selected
+                        ? alpha(theme.palette.primary[300], 0.2)
+                        : 'transparent',
+                      bgcolor: selected
+                        ? alpha(theme.palette.primary[500], 0.16)
+                        : 'transparent',
+                    }),
                     color: selected ? 'text.primary' : 'text.secondary',
                     textDecoration: 'none',
                     transition: motionTransition(['background-color', 'border-color', 'box-shadow', 'transform']),
                     '&:hover': {
                       transform: 'translateY(-1px)',
-                      borderColor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.primary[300], 0.14)
-                          : alpha(theme.palette.primary[100], 0.9),
-                      bgcolor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.primary[500], 0.12)
-                          : alpha(theme.palette.common.white, 0.92),
+                      borderColor: alpha(theme.palette.primary[100], 0.9),
+                      bgcolor: alpha(theme.palette.common.white, 0.92),
                     },
                     ...(selected && {
-                      boxShadow:
-                        theme.palette.mode === 'dark'
-                          ? `0 8px 24px ${alpha(theme.palette.common.black, 0.22)}`
-                          : `0 8px 24px ${alpha(theme.palette.primary[900], 0.08)}`,
+                      boxShadow: `0 8px 24px ${alpha(theme.palette.primary[900], 0.08)}`,
+                    }),
+                    ...theme.applyStyles('dark', {
+                      '&:hover': {
+                        borderColor: alpha(theme.palette.primary[300], 0.14),
+                        bgcolor: alpha(theme.palette.primary[500], 0.12),
+                      },
+                      ...(selected && {
+                        boxShadow: `0 8px 24px ${alpha(theme.palette.common.black, 0.22)}`,
+                      }),
                     }),
                     ...cardFocusVisibleSx(theme),
                   })}
@@ -107,14 +109,14 @@ export default function LandingComponentNav({ activeId }: LandingComponentNavPro
                       placeItems: 'center',
                       borderRadius: '10px',
                       color: selected ? 'primary.main' : 'text.secondary',
-                      bgcolor:
-                        theme.palette.mode === 'dark'
-                          ? selected
-                            ? alpha(theme.palette.primary[500], 0.18)
-                            : alpha(theme.palette.common.white, 0.06)
-                          : selected
-                            ? alpha(theme.palette.primary[50], 0.98)
-                            : alpha(theme.palette.grey[50], 0.9),
+                      bgcolor: selected
+                        ? alpha(theme.palette.primary[50], 0.98)
+                        : alpha(theme.palette.grey[50], 0.9),
+                      ...theme.applyStyles('dark', {
+                        bgcolor: selected
+                          ? alpha(theme.palette.primary[500], 0.18)
+                          : alpha(theme.palette.common.white, 0.06),
+                      }),
                       flexShrink: 0,
                     })}
                   >

@@ -4,12 +4,12 @@ import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import { alpha } from '@mui/material/styles';
 import KeyboardArrowRightRounded from '@mui/icons-material/KeyboardArrowRightRounded';
 import GradientText from 'docs/src/components/typography/GradientText';
 import StatusBadge from 'docs/src/components/landing/StatusBadge';
 import { type ProductStatus } from 'docs/src/components/landing/marketingTheme';
 import { Link } from '@mui/docs/Link';
+import ComponentHeroRoot from './ComponentHeroRoot';
 
 interface ComponentHeroCta {
   label: string;
@@ -34,36 +34,7 @@ export default function ComponentHeroBlock({
   ctas,
 }: ComponentHeroBlockProps) {
   return (
-    <Box
-      sx={[
-        (theme) => ({
-          position: 'relative',
-          overflow: 'hidden',
-          pt: { xs: 10, md: 14 },
-          pb: { xs: 6, md: 10 },
-          '&::before': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: '200%',
-            height: '100%',
-            background: `radial-gradient(ellipse 50% 70% at 50% 0%, ${alpha(
-              theme.palette.primary[50],
-              0.4,
-            )} 0%, transparent 70%)`,
-            pointerEvents: 'none',
-            ...theme.applyDarkStyles({
-              background: `radial-gradient(ellipse 50% 70% at 50% 0%, ${alpha(
-                theme.palette.primary[900],
-                0.25,
-              )} 0%, transparent 70%)`,
-            }),
-          },
-        }),
-      ]}
-    >
+    <ComponentHeroRoot>
       <Container
         sx={{
           position: 'relative',
@@ -119,6 +90,6 @@ export default function ComponentHeroBlock({
           ))}
         </Stack>
       </Container>
-    </Box>
+    </ComponentHeroRoot>
   );
 }

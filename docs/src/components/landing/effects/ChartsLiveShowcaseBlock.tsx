@@ -193,14 +193,12 @@ export default function ChartsLiveShowcaseBlock() {
                   sx={(theme) => ({
                     p: 2,
                     borderRadius: premiumTokens.radius.xl,
-                    borderColor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.primary[300], 0.14)
-                        : alpha(theme.palette.primary[100], 0.85),
-                    bgcolor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.common.white, 0.03)
-                        : alpha(theme.palette.common.white, 0.88),
+                    borderColor: alpha(theme.palette.primary[100], 0.85),
+                    bgcolor: alpha(theme.palette.common.white, 0.88),
+                    ...theme.applyStyles('dark', {
+                      borderColor: alpha(theme.palette.primary[300], 0.14),
+                      bgcolor: alpha(theme.palette.common.white, 0.03),
+                    }),
                   })}
                 >
                   <Typography sx={{ fontSize: 12, fontWeight: 700, color: 'text.secondary' }}>
@@ -219,14 +217,12 @@ export default function ChartsLiveShowcaseBlock() {
                   sx={(theme) => ({
                     p: 2,
                     borderRadius: premiumTokens.radius.xl,
-                    borderColor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.primary[300], 0.14)
-                        : alpha(theme.palette.primary[100], 0.85),
-                    bgcolor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.common.white, 0.03)
-                        : alpha(theme.palette.common.white, 0.88),
+                    borderColor: alpha(theme.palette.primary[100], 0.85),
+                    bgcolor: alpha(theme.palette.common.white, 0.88),
+                    ...theme.applyStyles('dark', {
+                      borderColor: alpha(theme.palette.primary[300], 0.14),
+                      bgcolor: alpha(theme.palette.common.white, 0.03),
+                    }),
                   })}
                 >
                   <Typography sx={{ fontSize: 12, fontWeight: 700, color: 'text.secondary' }}>

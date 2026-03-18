@@ -23,14 +23,19 @@ export default function ShimmerLine({ width = '100%', height = 2, delay = 0 }: S
         height,
         overflow: 'hidden',
         borderRadius: 1,
-        bgcolor: theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.04)',
+        bgcolor: 'rgba(0,0,0,0.04)',
+        ...theme.applyStyles('dark', {
+          bgcolor: 'rgba(255,255,255,0.06)',
+          '&::after': {
+            background:
+              'linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.08) 50%, transparent 100%)',
+          },
+        }),
         '&::after': {
           content: '""',
           position: 'absolute',
           inset: 0,
-          background: `linear-gradient(90deg, transparent 0%, ${
-            theme.palette.mode === 'dark' ? 'rgba(255,255,255,0.08)' : 'rgba(0,0,0,0.06)'
-          } 50%, transparent 100%)`,
+          background: 'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.06) 50%, transparent 100%)',
           animation: `${shimmer} 2.5s ease-in-out infinite`,
           animationDelay: `${delay}ms`,
         },

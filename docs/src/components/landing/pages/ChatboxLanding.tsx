@@ -10,7 +10,7 @@ import InvertColorsRounded from '@mui/icons-material/InvertColorsRounded';
 import SmartToyRounded from '@mui/icons-material/SmartToyRounded';
 import SupportAgentRounded from '@mui/icons-material/SupportAgentRounded';
 import ForumRounded from '@mui/icons-material/ForumRounded';
-import ComponentHeroBlock from 'docs/src/components/landing/ComponentHeroBlock';
+import ComponentHeroBlock from 'docs/src/components/landing/hero/ComponentHeroBlock';
 import LandingComponentNav from 'docs/src/components/landing/LandingComponentNav';
 import StubLandingBlock from 'docs/src/components/landing/StubLandingBlock';
 import { chatboxConfig } from 'docs/src/components/landing/configs/stubConfigs';

@@ -17,7 +17,7 @@ import InsightsRounded from '@mui/icons-material/InsightsRounded';
 import MonitorHeartRounded from '@mui/icons-material/MonitorHeartRounded';
 import QueryStatsRounded from '@mui/icons-material/QueryStatsRounded';
 import GradientText from 'docs/src/components/typography/GradientText';
-import ComponentHeroBlock from 'docs/src/components/landing/ComponentHeroBlock';
+import ComponentHeroBlock from 'docs/src/components/landing/hero/ComponentHeroBlock';
 import HighlightsBlock from 'docs/src/components/landing/HighlightsBlock';
 import LandingComponentNav from 'docs/src/components/landing/LandingComponentNav';
 import UseCasesBlock from 'docs/src/components/landing/UseCasesBlock';
@@ -44,14 +44,12 @@ const ChartsLiveShowcaseBlock = dynamic(
           minHeight: 620,
           borderRadius: premiumTokens.radius.xl,
           border: '1px solid',
-          borderColor:
-            theme.palette.mode === 'dark'
-              ? alpha(theme.palette.primary[300], 0.12)
-              : alpha(theme.palette.primary[100], 0.8),
-          bgcolor:
-            theme.palette.mode === 'dark'
-              ? alpha(theme.palette.common.white, 0.02)
-              : alpha(theme.palette.common.white, 0.72),
+          borderColor: alpha(theme.palette.primary[100], 0.8),
+          bgcolor: alpha(theme.palette.common.white, 0.72),
+          ...theme.applyStyles('dark', {
+            borderColor: alpha(theme.palette.primary[300], 0.12),
+            bgcolor: alpha(theme.palette.common.white, 0.02),
+          }),
         })}
       />
     ),
@@ -132,10 +130,10 @@ export default function ChartsLanding() {
                       gap: 1.5,
                       textDecoration: 'none',
                       borderRadius: premiumTokens.radius.lg,
-                      bgcolor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.common.white, 0.02)
-                          : alpha(theme.palette.common.white, 0.82),
+                      bgcolor: alpha(theme.palette.common.white, 0.82),
+                      ...theme.applyStyles('dark', {
+                        bgcolor: alpha(theme.palette.common.white, 0.02),
+                      }),
                       ...cardHoverSx(theme),
                     }),
                   ]}

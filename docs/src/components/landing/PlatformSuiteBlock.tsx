@@ -94,10 +94,10 @@ export default function PlatformSuiteBlock() {
                     gap: 1.5,
                     textDecoration: 'none',
                     borderRadius: premiumTokens.radius.lg,
-                    bgcolor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.common.white, 0.02)
-                        : alpha(theme.palette.common.white, 0.82),
+                    bgcolor: alpha(theme.palette.common.white, 0.82),
+                    ...theme.applyStyles('dark', {
+                      bgcolor: alpha(theme.palette.common.white, 0.02),
+                    }),
                     transition: motionTransition(['transform', 'box-shadow', 'border-color']),
                     '&:hover': {
                       transform: 'translateY(-4px)',

@@ -25,7 +25,7 @@ import Section from 'docs/src/layouts/Section';
 import SectionReveal from 'docs/src/components/landing/SectionReveal';
 import SectionHeadline from 'docs/src/components/typography/SectionHeadline';
 import GradientText from 'docs/src/components/typography/GradientText';
-import ComponentHeroBlock from 'docs/src/components/landing/ComponentHeroBlock';
+import ComponentHeroBlock from 'docs/src/components/landing/hero/ComponentHeroBlock';
 import HighlightsBlock from 'docs/src/components/landing/HighlightsBlock';
 import LandingComponentNav from 'docs/src/components/landing/LandingComponentNav';
 import UseCasesBlock from 'docs/src/components/landing/UseCasesBlock';
@@ -61,19 +61,15 @@ const DataGridFeatureShowcaseBlock = dynamic(
             sx={(theme) => ({
               overflow: 'hidden',
               borderRadius: premiumTokens.radius.xl,
-              borderColor:
-                theme.palette.mode === 'dark'
-                  ? alpha(theme.palette.primary[300], 0.16)
-                  : alpha(theme.palette.primary[100], 0.9),
-              bgcolor:
-                theme.palette.mode === 'dark'
-                  ? alpha(theme.palette.primaryDark[900], 0.9)
-                  : alpha(theme.palette.common.white, 0.88),
+              borderColor: alpha(theme.palette.primary[100], 0.9),
+              bgcolor: alpha(theme.palette.common.white, 0.88),
               backdropFilter: 'blur(18px)',
-              boxShadow:
-                theme.palette.mode === 'dark'
-                  ? `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`
-                  : `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+              boxShadow: `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+              ...theme.applyStyles('dark', {
+                borderColor: alpha(theme.palette.primary[300], 0.16),
+                bgcolor: alpha(theme.palette.primaryDark[900], 0.9),
+                boxShadow: `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`,
+              }),
             })}
           >
             <Box sx={{ p: { xs: 2, md: 2.5 }, borderBottom: '1px solid', borderColor: 'divider' }}>
@@ -145,14 +141,12 @@ const DataGridFeatureShowcaseBlock = dynamic(
                       p: 1.5,
                       borderRadius: premiumTokens.radius.lg,
                       border: '1px solid',
-                      borderColor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.primary[300], 0.1)
-                          : alpha(theme.palette.primary[100], 0.75),
-                      bgcolor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.common.white, 0.02)
-                          : alpha(theme.palette.primary[50], 0.5),
+                      borderColor: alpha(theme.palette.primary[100], 0.75),
+                      bgcolor: alpha(theme.palette.primary[50], 0.5),
+                      ...theme.applyStyles('dark', {
+                        borderColor: alpha(theme.palette.primary[300], 0.1),
+                        bgcolor: alpha(theme.palette.common.white, 0.02),
+                      }),
                     })}
                   >
                     <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary' }}>
@@ -170,14 +164,12 @@ const DataGridFeatureShowcaseBlock = dynamic(
                   height: 520,
                   borderRadius: premiumTokens.radius.lg,
                   border: '1px solid',
-                  borderColor:
-                    theme.palette.mode === 'dark'
-                      ? alpha(theme.palette.primary[300], 0.1)
-                      : alpha(theme.palette.primary[100], 0.75),
-                  bgcolor:
-                    theme.palette.mode === 'dark'
-                      ? alpha(theme.palette.common.white, 0.02)
-                      : alpha(theme.palette.common.white, 0.86),
+                  borderColor: alpha(theme.palette.primary[100], 0.75),
+                  bgcolor: alpha(theme.palette.common.white, 0.86),
+                  ...theme.applyStyles('dark', {
+                    borderColor: alpha(theme.palette.primary[300], 0.1),
+                    bgcolor: alpha(theme.palette.common.white, 0.02),
+                  }),
                 })}
               >
                 <Box sx={{ height: '100%', overflowX: 'auto', overflowY: 'hidden' }}>
@@ -194,10 +186,10 @@ const DataGridFeatureShowcaseBlock = dynamic(
                           border: '1px solid',
                           borderColor: 'divider',
                           color: 'text.secondary',
-                          bgcolor:
-                            theme.palette.mode === 'dark'
-                              ? alpha(theme.palette.common.white, 0.02)
-                              : alpha(theme.palette.grey[50], 0.7),
+                          bgcolor: alpha(theme.palette.grey[50], 0.7),
+                          ...theme.applyStyles('dark', {
+                            bgcolor: alpha(theme.palette.common.white, 0.02),
+                          }),
                         })}
                       >
                         <Typography sx={{ fontSize: 13 }}>Search contracts</Typography>
@@ -327,10 +319,10 @@ export default function DataGridLanding() {
                       gap: 1.5,
                       textDecoration: 'none',
                       borderRadius: premiumTokens.radius.lg,
-                      bgcolor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.common.white, 0.02)
-                          : alpha(theme.palette.common.white, 0.82),
+                      bgcolor: alpha(theme.palette.common.white, 0.82),
+                      ...theme.applyStyles('dark', {
+                        bgcolor: alpha(theme.palette.common.white, 0.02),
+                      }),
                       ...cardHoverSx(theme),
                     }),
                   ]}

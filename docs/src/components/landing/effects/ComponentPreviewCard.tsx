@@ -29,10 +29,10 @@ export default function ComponentPreviewCard() {
           borderRadius: 3,
           border: '1px solid',
           borderColor: 'divider',
-          background:
-            theme.palette.mode === 'dark'
-              ? alpha(theme.palette.background.paper, 0.5)
-              : theme.palette.background.paper,
+          background: theme.palette.background.paper,
+          ...theme.applyStyles('dark', {
+            background: alpha(theme.palette.background.paper, 0.5),
+          }),
           animation: `${fadeIn} 0.6s ease-out`,
           '@media (prefers-reduced-motion: reduce)': {
             animation: 'none',

@@ -56,19 +56,15 @@ export default function AppHeader(props: AppHeaderProps) {
           px: { xs: 1, sm: 1.5 },
           borderRadius: '12px',
           border: '1px solid',
-          borderColor:
-            theme.palette.mode === 'dark'
-              ? alpha(theme.palette.primary[300], 0.16)
-              : alpha(theme.palette.primary[100], 0.95),
-          bgcolor:
-            theme.palette.mode === 'dark'
-              ? alpha(theme.palette.primaryDark[900], 0.72)
-              : alpha(theme.palette.common.white, 0.74),
-          boxShadow:
-            theme.palette.mode === 'dark'
-              ? `0 10px 30px ${alpha(theme.palette.common.black, 0.28)}`
-              : `0 10px 30px ${alpha(theme.palette.primary[900], 0.08)}`,
+          borderColor: alpha(theme.palette.primary[100], 0.95),
+          bgcolor: alpha(theme.palette.common.white, 0.74),
+          boxShadow: `0 10px 30px ${alpha(theme.palette.primary[900], 0.08)}`,
           backdropFilter: 'blur(20px)',
+          ...theme.applyStyles('dark', {
+            borderColor: alpha(theme.palette.primary[300], 0.16),
+            bgcolor: alpha(theme.palette.primaryDark[900], 0.72),
+            boxShadow: `0 10px 30px ${alpha(theme.palette.common.black, 0.28)}`,
+          }),
         })}
       >
         <LogoWithCopyMenu />
@@ -90,14 +86,12 @@ export default function AppHeader(props: AppHeaderProps) {
               data-ga-event-action="github"
               sx={(theme) => ({
                 border: '1px solid',
-                borderColor:
-                  theme.palette.mode === 'dark'
-                    ? alpha(theme.palette.primary[300], 0.14)
-                    : alpha(theme.palette.primary[100], 0.95),
-                bgcolor:
-                  theme.palette.mode === 'dark'
-                    ? alpha(theme.palette.common.white, 0.02)
-                    : alpha(theme.palette.common.white, 0.72),
+                borderColor: alpha(theme.palette.primary[100], 0.95),
+                bgcolor: alpha(theme.palette.common.white, 0.72),
+                ...theme.applyStyles('dark', {
+                  borderColor: alpha(theme.palette.primary[300], 0.14),
+                  bgcolor: alpha(theme.palette.common.white, 0.02),
+                }),
               })}
             >
               <GitHubIcon fontSize="small" />

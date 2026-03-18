@@ -22,7 +22,7 @@ import Section from 'docs/src/layouts/Section';
 import SectionReveal from 'docs/src/components/landing/SectionReveal';
 import SectionHeadline from 'docs/src/components/typography/SectionHeadline';
 import GradientText from 'docs/src/components/typography/GradientText';
-import ComponentHeroBlock from 'docs/src/components/landing/ComponentHeroBlock';
+import ComponentHeroBlock from 'docs/src/components/landing/hero/ComponentHeroBlock';
 import HighlightsBlock from 'docs/src/components/landing/HighlightsBlock';
 import LandingComponentNav from 'docs/src/components/landing/LandingComponentNav';
 import UseCasesBlock from 'docs/src/components/landing/UseCasesBlock';

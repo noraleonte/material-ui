@@ -311,18 +311,14 @@ export default function DataGridLiveShowcaseBlock() {
                 sx={(theme) => ({
                   overflow: 'hidden',
                   borderRadius: premiumTokens.radius.xl,
-                  borderColor:
-                    theme.palette.mode === 'dark'
-                      ? alpha(theme.palette.primary[300], 0.16)
-                      : alpha(theme.palette.primary[100], 0.9),
-                  bgcolor:
-                    theme.palette.mode === 'dark'
-                      ? alpha(theme.palette.common.white, 0.03)
-                      : alpha(theme.palette.common.white, 0.88),
-                  boxShadow:
-                    theme.palette.mode === 'dark'
-                      ? `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`
-                      : `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+                  borderColor: alpha(theme.palette.primary[100], 0.9),
+                  bgcolor: alpha(theme.palette.common.white, 0.88),
+                  boxShadow: `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+                  ...theme.applyStyles('dark', {
+                    borderColor: alpha(theme.palette.primary[300], 0.16),
+                    bgcolor: alpha(theme.palette.common.white, 0.03),
+                    boxShadow: `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`,
+                  }),
                 })}
               >
                 <Box
@@ -332,10 +328,10 @@ export default function DataGridLiveShowcaseBlock() {
                     gap: 1,
                     p: 1.5,
                     borderBottom: '1px solid',
-                    borderColor:
-                      theme.palette.mode === 'dark'
-                        ? alpha(theme.palette.primary[300], 0.12)
-                        : alpha(theme.palette.primary[100], 0.8),
+                    borderColor: alpha(theme.palette.primary[100], 0.8),
+                    ...theme.applyStyles('dark', {
+                      borderColor: alpha(theme.palette.primary[300], 0.12),
+                    }),
                   })}
                 >
                   <Paper
@@ -344,14 +340,12 @@ export default function DataGridLiveShowcaseBlock() {
                       p: 1.5,
                       borderRadius: premiumTokens.radius.lg,
                       border: '1px solid',
-                      borderColor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.primary[300], 0.1)
-                          : alpha(theme.palette.primary[100], 0.75),
-                      bgcolor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.common.white, 0.02)
-                          : alpha(theme.palette.primary[50], 0.5),
+                      borderColor: alpha(theme.palette.primary[100], 0.75),
+                      bgcolor: alpha(theme.palette.primary[50], 0.5),
+                      ...theme.applyStyles('dark', {
+                        borderColor: alpha(theme.palette.primary[300], 0.1),
+                        bgcolor: alpha(theme.palette.common.white, 0.02),
+                      }),
                     })}
                   >
                     <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary' }}>
@@ -370,14 +364,12 @@ export default function DataGridLiveShowcaseBlock() {
                       p: 1.5,
                       borderRadius: premiumTokens.radius.lg,
                       border: '1px solid',
-                      borderColor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.primary[300], 0.1)
-                          : alpha(theme.palette.primary[100], 0.75),
-                      bgcolor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.common.white, 0.02)
-                          : alpha(theme.palette.primary[50], 0.5),
+                      borderColor: alpha(theme.palette.primary[100], 0.75),
+                      bgcolor: alpha(theme.palette.primary[50], 0.5),
+                      ...theme.applyStyles('dark', {
+                        borderColor: alpha(theme.palette.primary[300], 0.1),
+                        bgcolor: alpha(theme.palette.common.white, 0.02),
+                      }),
                     })}
                   >
                     <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary' }}>
@@ -411,14 +403,12 @@ export default function DataGridLiveShowcaseBlock() {
                     sx={(theme) => ({
                       border: 0,
                       '& .MuiDataGrid-columnHeaders': {
-                        bgcolor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.common.white, 0.02)
-                            : alpha(theme.palette.primary[50], 0.6),
-                        borderBottomColor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.primary[300], 0.12)
-                            : alpha(theme.palette.primary[100], 0.85),
+                        bgcolor: alpha(theme.palette.primary[50], 0.6),
+                        borderBottomColor: alpha(theme.palette.primary[100], 0.85),
+                        ...theme.applyStyles('dark', {
+                          bgcolor: alpha(theme.palette.common.white, 0.02),
+                          borderBottomColor: alpha(theme.palette.primary[300], 0.12),
+                        }),
                       },
                       '& .MuiDataGrid-columnHeaderTitle': {
                         fontWeight: 700,
@@ -479,18 +469,14 @@ export default function DataGridLiveShowcaseBlock() {
                 sx={(theme) => ({
                   overflow: 'hidden',
                   borderRadius: premiumTokens.radius.xl,
-                  borderColor:
-                    theme.palette.mode === 'dark'
-                      ? alpha(theme.palette.primary[300], 0.16)
-                      : alpha(theme.palette.primary[100], 0.9),
-                  bgcolor:
-                    theme.palette.mode === 'dark'
-                      ? alpha(theme.palette.primaryDark[900], 0.9)
-                      : alpha(theme.palette.common.white, 0.88),
-                  boxShadow:
-                    theme.palette.mode === 'dark'
-                      ? `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`
-                      : `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+                  borderColor: alpha(theme.palette.primary[100], 0.9),
+                  bgcolor: alpha(theme.palette.common.white, 0.88),
+                  boxShadow: `0 18px 50px ${alpha(theme.palette.primary[900], 0.08)}`,
+                  ...theme.applyStyles('dark', {
+                    borderColor: alpha(theme.palette.primary[300], 0.16),
+                    bgcolor: alpha(theme.palette.primaryDark[900], 0.9),
+                    boxShadow: `0 18px 50px ${alpha(theme.palette.common.black, 0.28)}`,
+                  }),
                 })}
               >
                 <Stack
@@ -526,10 +512,10 @@ export default function DataGridLiveShowcaseBlock() {
                     sx={(theme) => ({
                       p: 1.5,
                       borderRight: { md: '1px solid' },
-                      borderColor:
-                        theme.palette.mode === 'dark'
-                          ? alpha(theme.palette.primary[300], 0.12)
-                          : alpha(theme.palette.primary[100], 0.8),
+                      borderColor: alpha(theme.palette.primary[100], 0.8),
+                      ...theme.applyStyles('dark', {
+                        borderColor: alpha(theme.palette.primary[300], 0.12),
+                      }),
                     })}
                   >
                     <Stack
@@ -565,14 +551,12 @@ export default function DataGridLiveShowcaseBlock() {
                         sx={(theme) => ({
                           border: 0,
                           '& .MuiDataGrid-columnHeaders': {
-                            bgcolor:
-                              theme.palette.mode === 'dark'
-                                ? alpha(theme.palette.common.white, 0.02)
-                                : alpha(theme.palette.primary[50], 0.6),
-                            borderBottomColor:
-                              theme.palette.mode === 'dark'
-                                ? alpha(theme.palette.primary[300], 0.12)
-                                : alpha(theme.palette.primary[100], 0.85),
+                            bgcolor: alpha(theme.palette.primary[50], 0.6),
+                            borderBottomColor: alpha(theme.palette.primary[100], 0.85),
+                            ...theme.applyStyles('dark', {
+                              bgcolor: alpha(theme.palette.common.white, 0.02),
+                              borderBottomColor: alpha(theme.palette.primary[300], 0.12),
+                            }),
                           },
                           '& .MuiDataGrid-columnHeaderTitle': {
                             fontWeight: 700,
@@ -595,14 +579,12 @@ export default function DataGridLiveShowcaseBlock() {
                         p: 1.5,
                         borderRadius: premiumTokens.radius.lg,
                         border: '1px solid',
-                        borderColor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.primary[300], 0.12)
-                            : alpha(theme.palette.primary[100], 0.8),
-                        bgcolor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.common.white, 0.03)
-                            : alpha(theme.palette.common.white, 0.92),
+                        borderColor: alpha(theme.palette.primary[100], 0.8),
+                        bgcolor: alpha(theme.palette.common.white, 0.92),
+                        ...theme.applyStyles('dark', {
+                          borderColor: alpha(theme.palette.primary[300], 0.12),
+                          bgcolor: alpha(theme.palette.common.white, 0.03),
+                        }),
                       })}
                     >
                       <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 1 }}>
@@ -613,11 +595,11 @@ export default function DataGridLiveShowcaseBlock() {
                             borderRadius: '10px',
                             display: 'grid',
                             placeItems: 'center',
-                            bgcolor:
-                              theme.palette.mode === 'dark'
-                                ? alpha(theme.palette.primary[500], 0.18)
-                                : alpha(theme.palette.primary[50], 0.9),
+                            bgcolor: alpha(theme.palette.primary[50], 0.9),
                             color: 'primary.main',
+                            ...theme.applyStyles('dark', {
+                              bgcolor: alpha(theme.palette.primary[500], 0.18),
+                            }),
                           })}
                         >
                           <SmartToyRounded sx={{ fontSize: 18 }} />
@@ -645,10 +627,10 @@ export default function DataGridLiveShowcaseBlock() {
                             borderRadius: '12px 12px 4px 12px',
                             px: 1.5,
                             py: 1.25,
-                            bgcolor:
-                              theme.palette.mode === 'dark'
-                                ? alpha(theme.palette.primary[500], 0.18)
-                                : alpha(theme.palette.primary[50], 1),
+                            bgcolor: alpha(theme.palette.primary[50], 1),
+                            ...theme.applyStyles('dark', {
+                              bgcolor: alpha(theme.palette.primary[500], 0.18),
+                            }),
                           })}
                         >
                           <Typography sx={{ fontSize: 13, lineHeight: 1.45 }}>
@@ -661,15 +643,13 @@ export default function DataGridLiveShowcaseBlock() {
                             borderRadius: '12px 12px 12px 4px',
                             px: 1.5,
                             py: 1.25,
-                            bgcolor:
-                              theme.palette.mode === 'dark'
-                                ? alpha(theme.palette.common.white, 0.03)
-                                : alpha(theme.palette.grey[50], 0.9),
+                            bgcolor: alpha(theme.palette.grey[50], 0.9),
                             border: '1px solid',
-                            borderColor:
-                              theme.palette.mode === 'dark'
-                                ? alpha(theme.palette.primary[300], 0.12)
-                                : alpha(theme.palette.primary[100], 0.8),
+                            borderColor: alpha(theme.palette.primary[100], 0.8),
+                            ...theme.applyStyles('dark', {
+                              bgcolor: alpha(theme.palette.common.white, 0.03),
+                              borderColor: alpha(theme.palette.primary[300], 0.12),
+                            }),
                           })}
                         >
                           <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 0.75 }}>
@@ -690,14 +670,12 @@ export default function DataGridLiveShowcaseBlock() {
                         p: 1.5,
                         borderRadius: premiumTokens.radius.lg,
                         border: '1px solid',
-                        borderColor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.primary[300], 0.12)
-                            : alpha(theme.palette.primary[100], 0.8),
-                        bgcolor:
-                          theme.palette.mode === 'dark'
-                            ? alpha(theme.palette.common.white, 0.03)
-                            : alpha(theme.palette.primary[50], 0.52),
+                        borderColor: alpha(theme.palette.primary[100], 0.8),
+                        bgcolor: alpha(theme.palette.primary[50], 0.52),
+                        ...theme.applyStyles('dark', {
+                          borderColor: alpha(theme.palette.primary[300], 0.12),
+                          bgcolor: alpha(theme.palette.common.white, 0.03),
+                        }),
                       })}
                     >
                       <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary', mb: 0.75 }}>

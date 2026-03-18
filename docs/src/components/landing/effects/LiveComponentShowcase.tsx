@@ -229,19 +229,17 @@ function PivotingGrid() {
           border: 0,
           bgcolor: 'transparent',
           fontSize: '0.8125rem',
-          '--DataGrid-rowBorderColor':
-            theme.palette.mode === 'dark'
-              ? alpha(theme.palette.primary[300], 0.14)
-              : alpha(theme.palette.primary[100], 0.95),
+          '--DataGrid-rowBorderColor': alpha(theme.palette.primary[100], 0.95),
+          ...theme.applyStyles('dark', {
+            '--DataGrid-rowBorderColor': alpha(theme.palette.primary[300], 0.14),
+          }),
           '& .MuiDataGrid-columnHeaders': {
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.common.white, 0.02)
-                : alpha(theme.palette.primary[50], 0.6),
-            borderBottomColor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[300], 0.12)
-                : alpha(theme.palette.primary[100], 0.85),
+            bgcolor: alpha(theme.palette.primary[50], 0.6),
+            borderBottomColor: alpha(theme.palette.primary[100], 0.85),
+            ...theme.applyStyles('dark', {
+              bgcolor: alpha(theme.palette.common.white, 0.02),
+              borderBottomColor: alpha(theme.palette.primary[300], 0.12),
+            }),
           },
           '& .MuiDataGrid-columnHeaderTitle': {
             fontWeight: 700,
@@ -288,15 +286,13 @@ function AssistantPanel() {
         overflow: 'hidden',
         borderRadius: premiumTokens.radius.lg,
         border: '1px solid',
-        borderColor:
-          theme.palette.mode === 'dark'
-            ? alpha(theme.palette.primary[300], 0.16)
-            : alpha(theme.palette.primary[100], 0.95),
-        bgcolor:
-          theme.palette.mode === 'dark'
-            ? alpha(theme.palette.primaryDark[800], 0.9)
-            : alpha(theme.palette.common.white, 0.94),
-        boxShadow: premiumTokens.hero.floatingShadow(theme),
+        borderColor: alpha(theme.palette.primary[100], 0.95),
+        bgcolor: alpha(theme.palette.common.white, 0.94),
+        ...theme.applyStyles('dark', {
+          borderColor: alpha(theme.palette.primary[300], 0.16),
+          bgcolor: alpha(theme.palette.primaryDark[800], 0.9),
+        }),
+        ...premiumTokens.hero.floatingShadow(theme),
         backdropFilter: 'blur(22px)',
       })}
     >
@@ -308,10 +304,10 @@ function AssistantPanel() {
             borderRadius: '10px',
             display: 'grid',
             placeItems: 'center',
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[500], 0.18)
-                : alpha(theme.palette.primary[50], 0.9),
+            bgcolor: alpha(theme.palette.primary[50], 0.9),
+            ...theme.applyStyles('dark', {
+              bgcolor: alpha(theme.palette.primary[500], 0.18),
+            }),
             color: 'primary.main',
           })}
         >
@@ -340,10 +336,10 @@ function AssistantPanel() {
             borderRadius: '12px 12px 4px 12px',
             px: 1.5,
             py: 1.25,
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[500], 0.18)
-                : alpha(theme.palette.primary[50], 1),
+            bgcolor: alpha(theme.palette.primary[50], 1),
+            ...theme.applyStyles('dark', {
+              bgcolor: alpha(theme.palette.primary[500], 0.18),
+            }),
             color: 'text.primary',
           })}
         >
@@ -357,15 +353,13 @@ function AssistantPanel() {
             borderRadius: '12px 12px 12px 4px',
             px: 1.5,
             py: 1.25,
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.common.white, 0.03)
-                : alpha(theme.palette.grey[50], 0.9),
+            bgcolor: alpha(theme.palette.grey[50], 0.9),
             border: '1px solid',
-            borderColor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[300], 0.12)
-                : alpha(theme.palette.primary[100], 0.8),
+            borderColor: alpha(theme.palette.primary[100], 0.8),
+            ...theme.applyStyles('dark', {
+              bgcolor: alpha(theme.palette.common.white, 0.03),
+              borderColor: alpha(theme.palette.primary[300], 0.12),
+            }),
           })}
         >
           <Stack direction="row" spacing={1} sx={{ alignItems: 'center', mb: 0.75 }}>
@@ -383,15 +377,13 @@ function AssistantPanel() {
           sx={(theme) => ({
             p: 1.5,
             borderRadius: '10px',
-            bgcolor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[500], 0.08)
-                : alpha(theme.palette.primary[50], 0.72),
+            bgcolor: alpha(theme.palette.primary[50], 0.72),
             border: '1px solid',
-            borderColor:
-              theme.palette.mode === 'dark'
-                ? alpha(theme.palette.primary[300], 0.12)
-                : alpha(theme.palette.primary[100], 0.8),
+            borderColor: alpha(theme.palette.primary[100], 0.8),
+            ...theme.applyStyles('dark', {
+              bgcolor: alpha(theme.palette.primary[500], 0.08),
+              borderColor: alpha(theme.palette.primary[300], 0.12),
+            }),
           })}
         >
           <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary', mb: 0.5 }}>
@@ -439,10 +431,10 @@ export default function LiveComponentShowcase() {
           inset: -16,
           zIndex: 0,
           borderRadius: '18px',
-          background:
-            t.palette.mode === 'dark'
-              ? `linear-gradient(135deg, ${alpha(t.palette.primary[500], 0.18)} 0%, ${alpha(t.palette.info.main, 0.12)} 50%, ${alpha(t.palette.primary[700], 0.16)} 100%)`
-              : `linear-gradient(135deg, ${alpha(t.palette.primary[100], 0.85)} 0%, ${alpha(t.palette.info.light, 0.22)} 55%, ${alpha(t.palette.primary[50], 0.95)} 100%)`,
+          background: `linear-gradient(135deg, ${alpha(t.palette.primary[100], 0.85)} 0%, ${alpha(t.palette.info.light, 0.22)} 55%, ${alpha(t.palette.primary[50], 0.95)} 100%)`,
+          ...t.applyStyles('dark', {
+            background: `linear-gradient(135deg, ${alpha(t.palette.primary[500], 0.18)} 0%, ${alpha(t.palette.info.main, 0.12)} 50%, ${alpha(t.palette.primary[700], 0.16)} 100%)`,
+          }),
           filter: 'blur(10px)',
         })}
       />
@@ -454,16 +446,14 @@ export default function LiveComponentShowcase() {
           overflow: 'hidden',
           borderRadius: premiumTokens.radius.xl,
           border: '1px solid',
-          borderColor:
-            t.palette.mode === 'dark'
-              ? alpha(t.palette.primary[300], 0.14)
-              : alpha(t.palette.primary[100], 0.95),
-          bgcolor:
-            t.palette.mode === 'dark'
-              ? alpha(t.palette.primaryDark[900], 0.9)
-              : alpha(t.palette.common.white, 0.86),
+          borderColor: alpha(t.palette.primary[100], 0.95),
+          bgcolor: alpha(t.palette.common.white, 0.86),
+          ...t.applyStyles('dark', {
+            borderColor: alpha(t.palette.primary[300], 0.14),
+            bgcolor: alpha(t.palette.primaryDark[900], 0.9),
+          }),
           backdropFilter: 'blur(26px)',
-          boxShadow: premiumTokens.hero.visualShadow(t),
+          ...premiumTokens.hero.visualShadow(t),
         })}
       >
         <Stack
@@ -562,14 +552,12 @@ export default function LiveComponentShowcase() {
                     justifyContent: 'space-between',
                     borderRadius: '10px',
                     border: '1px solid',
-                    borderColor:
-                      t.palette.mode === 'dark'
-                        ? alpha(t.palette.primary[300], 0.12)
-                        : alpha(t.palette.primary[100], 0.85),
-                    bgcolor:
-                      t.palette.mode === 'dark'
-                        ? alpha(t.palette.common.white, 0.02)
-                        : alpha(t.palette.primary[50], 0.55),
+                    borderColor: alpha(t.palette.primary[100], 0.85),
+                    bgcolor: alpha(t.palette.primary[50], 0.55),
+                    ...t.applyStyles('dark', {
+                      borderColor: alpha(t.palette.primary[300], 0.12),
+                      bgcolor: alpha(t.palette.common.white, 0.02),
+                    }),
                   })}
                 >
                   <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary', whiteSpace: 'nowrap' }}>
@@ -598,14 +586,12 @@ export default function LiveComponentShowcase() {
                 overflow: 'hidden',
                 borderRadius: premiumTokens.radius.lg,
                 border: '1px solid',
-                borderColor:
-                  t.palette.mode === 'dark'
-                    ? alpha(t.palette.primary[300], 0.14)
-                    : alpha(t.palette.primary[100], 0.9),
-                bgcolor:
-                  t.palette.mode === 'dark'
-                    ? alpha(t.palette.common.white, 0.02)
-                    : alpha(t.palette.common.white, 0.82),
+                borderColor: alpha(t.palette.primary[100], 0.9),
+                bgcolor: alpha(t.palette.common.white, 0.82),
+                ...t.applyStyles('dark', {
+                  borderColor: alpha(t.palette.primary[300], 0.14),
+                  bgcolor: alpha(t.palette.common.white, 0.02),
+                }),
               })}
             >
               <Box sx={{ height: { xs: 320, sm: 360, md: 390 } }}>
@@ -623,14 +609,12 @@ export default function LiveComponentShowcase() {
                 justifyContent: 'space-between',
                 borderRadius: premiumTokens.radius.lg,
                 border: '1px solid',
-                borderColor:
-                  t.palette.mode === 'dark'
-                    ? alpha(t.palette.primary[300], 0.12)
-                    : alpha(t.palette.primary[100], 0.8),
-                bgcolor:
-                  t.palette.mode === 'dark'
-                    ? alpha(t.palette.common.white, 0.02)
-                    : alpha(t.palette.primary[50], 0.52),
+                borderColor: alpha(t.palette.primary[100], 0.8),
+                bgcolor: alpha(t.palette.primary[50], 0.52),
+                ...t.applyStyles('dark', {
+                  borderColor: alpha(t.palette.primary[300], 0.12),
+                  bgcolor: alpha(t.palette.common.white, 0.02),
+                }),
               })}
             >
               <Typography sx={{ fontSize: 11, fontWeight: 700, color: 'text.secondary' }}>
@@ -685,14 +669,12 @@ export default function LiveComponentShowcase() {
                     justifyContent: 'space-between',
                     borderRadius: premiumTokens.radius.lg,
                     border: '1px solid',
-                    borderColor:
-                      t.palette.mode === 'dark'
-                        ? alpha(t.palette.primary[300], 0.12)
-                        : alpha(t.palette.primary[100], 0.8),
-                    bgcolor:
-                      t.palette.mode === 'dark'
-                        ? alpha(t.palette.common.white, 0.02)
-                        : alpha(t.palette.primary[50], 0.52),
+                    borderColor: alpha(t.palette.primary[100], 0.8),
+                    bgcolor: alpha(t.palette.primary[50], 0.52),
+                    ...t.applyStyles('dark', {
+                      borderColor: alpha(t.palette.primary[300], 0.12),
+                      bgcolor: alpha(t.palette.common.white, 0.02),
+                    }),
                   })}
                 >
                   <Typography sx={{ fontSize: 12, fontWeight: 700, color: 'text.secondary', mb: 0.75 }}>
