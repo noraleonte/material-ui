@@ -40,34 +40,30 @@ export default function Home() {
         />
       </Head>
       <AppHeaderBanner />
-      <AppHeader />
+
       <Box
-        sx={{
+        sx={(theme) => ({
           position: 'relative',
           overflow: 'hidden',
           '&::before': {
+            margin: theme.spacing(2),
+            borderRadius: 1,
             content: '""',
             position: 'absolute',
             top: 0,
             right: 0,
             left: 0,
             height: { xs: 820, md: 1080 },
+            background: `linear-gradient(180deg, ${theme.palette.background.default} 0%, #C6DCFD 89.29%)`,
+            ...theme.applyStyles('dark', {
+              background: `linear-gradient(180deg, #0f1214 0%, #131c2d 89.29%)`,
+            }),
             pointerEvents: 'none',
             zIndex: 0,
           },
-          '&::after': {
-            content: '""',
-            position: 'absolute',
-            top: 0,
-            right: 0,
-            left: 0,
-            height: { xs: 820, md: 1080 },
-            background: 'none',
-            pointerEvents: 'none',
-            zIndex: 0,
-          },
-        }}
+        })}
       >
+        <AppHeader />
         <main id="main-content" style={{ position: 'relative', zIndex: 1 }}>
           <HeroBlock
             headline={heroConfig.headline}
