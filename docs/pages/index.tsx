@@ -53,7 +53,7 @@ export default function Home() {
             top: 0,
             right: 0,
             left: 0,
-            height: { xs: 820, md: 1080 },
+            height: { xs: 1000, md: 1750 },
             background: `linear-gradient(180deg, ${theme.palette.background.default} 0%, #C6DCFD 89.29%)`,
             ...theme.applyStyles('dark', {
               background: `linear-gradient(180deg, #0f1214 0%, #131c2d 89.29%)`,
