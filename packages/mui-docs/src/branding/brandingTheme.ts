@@ -563,7 +563,7 @@ export function getThemedComponents(): ThemeOptions {
             ...(ownerState.variant === 'outlined' &&
               ownerState.color === 'secondary' && {
                 color: (theme.vars || theme).palette.text.primary,
-                backgroundColor: alpha(theme.palette.primaryDark[50], 0.1),
+                backgroundColor: alpha(theme.palette.background.paper, 0.7),
                 borderColor: (theme.vars || theme).palette.primaryDark[100],
                 boxShadow: `#FFF 0 1px 0 1px inset, ${alpha(theme.palette.grey[200], 0.4)} 0 -1px 0 1px inset, ${alpha(theme.palette.grey[200], 0.5)} 0 1px 2px 0`,
                 '&:hover': {
@@ -575,10 +575,10 @@ export function getThemedComponents(): ThemeOptions {
                 ...theme.applyDarkStyles({
                   color: (theme.vars || theme).palette.primaryDark[100],
                   borderColor: alpha(theme.palette.primaryDark[600], 0.5),
-                  backgroundColor: alpha(theme.palette.primaryDark[700], 0.2),
+                  backgroundColor: alpha(theme.palette.primaryDark[900], 0.7),
                   boxShadow: `${alpha(theme.palette.primaryDark[700], 0.3)} 0 1px 0 1px inset, ${(theme.vars || theme).palette.common.black} 0 -1px 0 1px inset, ${(theme.vars || theme).palette.common.black} 0 1px 2px 0`,
                   '&:hover': {
-                    backgroundColor: (theme.vars || theme).palette.primaryDark[700],
+                    backgroundColor: alpha(theme.palette.primaryDark[800], 0.7),
                     borderColor: (theme.vars || theme).palette.primaryDark[600],
                   },
                   '&:active': {

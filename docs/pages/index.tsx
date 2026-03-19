@@ -44,7 +44,7 @@ export default function Home() {
       <Box
         sx={(theme) => ({
           position: 'relative',
-          overflow: 'hidden',
+          overflow: 'clip',
           '&::before': {
             margin: theme.spacing(2),
             borderRadius: 1,

@@ -27,10 +27,6 @@ const Header = styled('header')(({ theme }) => ({
     zIndex: -1,
     pointerEvents: 'none',
   },
-  [theme.breakpoints.down('md')]: {
-    borderBottom: `1px solid ${(theme.vars || theme).palette.divider}`,
-    backgroundColor: (theme.vars || theme).palette.background.paper,
-  },
 }));
 
 const HEIGHT = 60;
