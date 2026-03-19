@@ -4,8 +4,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
-import Chip from '@mui/material/Chip';
-import { alpha, keyframes, styled } from '@mui/material/styles';
+import { keyframes, styled } from '@mui/material/styles';
 import KeyboardArrowRightRounded from '@mui/icons-material/KeyboardArrowRightRounded';
 import GradientText from 'docs/src/components/typography/GradientText';
 import StatusBadge from 'docs/src/components/landing/StatusBadge';
@@ -27,12 +26,10 @@ interface HeroCta {
 }
 
 interface HeroBlockProps {
-  overline?: string;
   headline: React.ReactNode;
   gradientText?: string;
   headlineSuffix?: React.ReactNode;
   description: string;
-  proofLine?: React.ReactNode;
   ctas: HeroCta[];
   badge?: ProductStatus;
 }
@@ -50,27 +47,6 @@ const HeroRoot = styled('div')(({ theme }) => ({
     minHeight: 'calc(100vh - var(--MuiDocs-header-height) - 72px)',
     alignItems: 'flex-start',
   },
-}));
-
-const HeroOverline = styled(Chip)(({ theme }) => ({
-  display: 'inline-flex',
-  alignItems: 'center',
-  paddingInline: theme.spacing(1),
-  paddingBlock: theme.spacing(0.5),
-  borderRadius: premiumTokens.radius.pill,
-  border: '1px solid',
-  borderColor: alpha(theme.palette.primary[200], 0.65),
-  backgroundColor: alpha(theme.palette.common.white, 0.42),
-  backdropFilter: 'blur(12px)',
-  fontWeight: 600,
-  letterSpacing: 0.25,
-  color: alpha(theme.palette.primary[900], 0.76),
-  marginBottom: theme.spacing(2),
-  ...theme.applyStyles('dark', {
-    borderColor: alpha(theme.palette.primary[500], 0.18),
-    backgroundColor: alpha(theme.palette.primary[500], 0.05),
-    color: alpha(theme.palette.primary[100], 0.92),
-  }),
 }));
 
 const HeroHeadline = styled(Typography)(({ theme }) => ({

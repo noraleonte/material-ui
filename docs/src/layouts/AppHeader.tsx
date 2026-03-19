@@ -1,4 +1,4 @@
-import { styled, alpha } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import GlobalStyles from '@mui/material/GlobalStyles';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -10,23 +10,28 @@ import LogoWithCopyMenu from 'docs/src/components/action/LogoWithCopyMenu';
 import HeaderNavBar from 'docs/src/components/header/HeaderNavBar';
 import HeaderNavDropdown from 'docs/src/components/header/HeaderNavDropdown';
 import ThemeModeToggle from 'docs/src/components/header/ThemeModeToggle';
-import { DeferredAppSearch } from 'docs/src/modules/components/AppFrame';
+import DeferredAppSearch from 'docs/src/modules/components/DeferredAppSearch';
 import { useTranslate } from '@mui/docs/i18n';
 
-const Header = styled('header')(({ theme }) => [
-  {
-    position: 'sticky',
-    top: 0,
-    transition: theme.transitions.create('top'),
-    zIndex: theme.zIndex.appBar,
-    backgroundColor: 'transparent',
-    backdropFilter: 'blur(10px)',
-    borderBottom: 'none',
-  } as const,
-  theme.applyDarkStyles({
-    backgroundColor: 'transparent',
-  }),
-]);
+const Header = styled('header')(({ theme }) => ({
+  position: 'sticky',
+  top: 0,
+  transition: theme.transitions.create('top'),
+  zIndex: theme.zIndex.appBar,
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    inset: 0,
+    backdropFilter: 'blur(2px)',
+    maskImage: 'linear-gradient(to bottom, black 20%, transparent 100%)',
+    zIndex: -1,
+    pointerEvents: 'none',
+  },
+  [theme.breakpoints.down('md')]: {
+    borderBottom: `1px solid ${(theme.vars || theme).palette.divider}`,
+    backgroundColor: (theme.vars || theme).palette.background.paper,
+  },
+}));
 
 const HEIGHT = 60;
 
@@ -48,32 +53,32 @@ export default function AppHeader(props: AppHeaderProps) {
         }}
       />
       <Container
-        sx={(theme) => ({
+        maxWidth="xl"
+        sx={{
           display: 'flex',
           alignItems: 'center',
+          justifyContent: 'space-between',
           minHeight: HEIGHT,
-          mt: 1,
-          px: { xs: 1, sm: 1.5 },
-          borderRadius: '12px',
-          border: '1px solid',
-          borderColor: alpha(theme.palette.primary[100], 0.95),
-          bgcolor: alpha(theme.palette.common.white, 0.74),
-          boxShadow: `0 10px 30px ${alpha(theme.palette.primary[900], 0.08)}`,
-          backdropFilter: 'blur(20px)',
-          ...theme.applyStyles('dark', {
-            borderColor: alpha(theme.palette.primary[300], 0.16),
-            bgcolor: alpha(theme.palette.primaryDark[900], 0.72),
-            boxShadow: `0 10px 30px ${alpha(theme.palette.common.black, 0.28)}`,
-          }),
-        })}
+          py: 2,
+        }}
       >
-        <LogoWithCopyMenu />
-        <Box sx={{ display: { xs: 'none', md: 'initial' } }}>
-          <HeaderNavBar />
+        <Box
+          sx={{
+            minWidth: 240,
+            '@media (max-width: 1099px)': {
+              minWidth: 114,
+            },
+          }}
+        >
+          <LogoWithCopyMenu />
         </Box>
-        <Box sx={{ ml: 'auto' }} />
-        <Stack direction="row" spacing={1} sx={{ alignItems: 'center' }}>
-          <DeferredAppSearch />
+        <HeaderNavBar />
+        <Stack
+          direction="row"
+          spacing={1}
+          sx={{ alignItems: 'center', justifyContent: 'flex-end' }}
+        >
+          <ThemeModeToggle />
           <Tooltip title={t('appFrame.github')} enterDelay={300}>
             <IconButton
               component="a"
@@ -84,24 +89,28 @@ export default function AppHeader(props: AppHeaderProps) {
               rel="noopener"
               data-ga-event-category="header"
               data-ga-event-action="github"
-              sx={(theme) => ({
-                border: '1px solid',
-                borderColor: alpha(theme.palette.primary[100], 0.95),
-                bgcolor: alpha(theme.palette.common.white, 0.72),
-                ...theme.applyStyles('dark', {
-                  borderColor: alpha(theme.palette.primary[300], 0.14),
-                  bgcolor: alpha(theme.palette.common.white, 0.02),
-                }),
-              })}
             >
               <GitHubIcon fontSize="small" />
             </IconButton>
           </Tooltip>
-          <ThemeModeToggle />
+          <DeferredAppSearch
+            sx={{
+              '@media (max-width: 1099px)': {
+                minWidth: 32,
+                width: 32,
+                height: 32,
+                padding: 0,
+                justifyContent: 'center',
+                '& > *:not(.MuiSvgIcon-root)': {
+                  display: 'none',
+                },
+              },
+            }}
+          />
+          <Box sx={{ display: { md: 'none' } }}>
+            <HeaderNavDropdown />
+          </Box>
         </Stack>
-        <Box sx={{ display: { md: 'none' }, ml: 1 }}>
-          <HeaderNavDropdown />
-        </Box>
       </Container>
     </Header>
   );

@@ -15,6 +15,16 @@ import MuiProductSelector from 'docs/src/modules/components/MuiProductSelector';
 
 const Navigation = styled('nav')(({ theme }) => [
   {
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'flex',
+    },
+    padding: theme.spacing(0.5),
+    borderRadius: '10px',
+    border: '1px solid',
+    borderColor: (theme.vars || theme).palette.divider,
+    backgroundColor: (theme.vars || theme).palette.background.paper,
+    boxShadow: '0 1px 4px 0 rgba(0,0,0,0.08)',
     '& > div': {
       cursor: 'default',
     },
@@ -23,6 +33,7 @@ const Navigation = styled('nav')(({ theme }) => [
       margin: 0,
       listStyle: 'none',
       display: 'flex',
+      gap: theme.spacing(2),
     },
     '& li': {
       ...theme.typography.body2,
@@ -33,17 +44,14 @@ const Navigation = styled('nav')(({ theme }) => [
         color: 'inherit',
         font: 'inherit',
         textDecoration: 'none',
-        padding: theme.spacing('7px', '10px'),
+        padding: theme.spacing(1, 2),
         borderRadius: '8px',
-        border: '1px solid transparent',
-        transition: theme.transitions.create(['background-color', 'border-color', 'color']),
+        transition: theme.transitions.create(['background-color', 'color']),
         '&:hover': {
           color: (theme.vars || theme).palette.text.primary,
-          backgroundColor: alpha(theme.palette.common.white, 0.82),
-          borderColor: alpha(theme.palette.primary[100], 0.95),
+          backgroundColor: (theme.vars || theme).palette.action.hover,
           '@media (hover: none)': {
             backgroundColor: 'initial',
-            // Reset on touch devices, it doesn't add specificity
           },
         },
         '&:focus-visible': {
@@ -59,7 +67,6 @@ const Navigation = styled('nav')(({ theme }) => [
         '&:hover': {
           color: (theme.vars || theme).palette.primary[50],
           backgroundColor: alpha(theme.palette.primaryDark[700], 0.6),
-          borderColor: alpha(theme.palette.primary[300], 0.18),
         },
       },
     },

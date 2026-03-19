@@ -94,6 +94,7 @@ export default function HeaderNavDropdown() {
         aria-label="Menu"
         ref={hambugerRef}
         disableRipple
+        size="small"
         onClick={() => setOpen((value) => !value)}
         sx={{
           position: 'relative',

@@ -23,7 +23,7 @@ import LogoWithCopyMenu from 'docs/src/components/action/LogoWithCopyMenu';
 import AppFrameBanner from 'docs/src/components/banner/AppFrameBanner';
 import { DemoPageThemeProvider } from 'docs/src/theming';
 import { pathnameToLanguage } from 'docs/src/modules/utils/helpers';
-import SearchButton from './SearchButton';
+import DeferredAppSearch from './DeferredAppSearch';
 
 const nProgressStart = debounce(() => {
   NProgress.start();
@@ -60,18 +60,6 @@ export function NextNProgressBar() {
   }, [router]);
 
   return <NProgressBar />;
-}
-
-const sx = { minWidth: { sm: 160 } };
-
-const AppSearch = React.lazy(() => import('docs/src/modules/components/AppSearch'));
-
-export function DeferredAppSearch() {
-  return (
-    <React.Suspense fallback={<SearchButton sx={sx} />}>
-      <AppSearch sx={sx} />
-    </React.Suspense>
-  );
 }
 
 const RootDiv = styled('div')(({ theme }) => {

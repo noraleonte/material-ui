@@ -1,6 +1,5 @@
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import GlobalStyles from '@mui/material/GlobalStyles';
 import Head from 'docs/src/modules/components/Head';
 import AppHeader from 'docs/src/layouts/AppHeader';
 import AppFooter from 'docs/src/layouts/AppFooter';
@@ -41,8 +40,9 @@ export default function Home() {
         />
       </Head>
       <AppHeaderBanner />
+      <AppHeader />
       <Box
-        sx={(theme) => ({
+        sx={{
           position: 'relative',
           overflow: 'hidden',
           '&::before': {
@@ -66,17 +66,14 @@ export default function Home() {
             pointerEvents: 'none',
             zIndex: 0,
           },
-        })}
+        }}
       >
-        <AppHeader />
         <main id="main-content" style={{ position: 'relative', zIndex: 1 }}>
           <HeroBlock
-            overline={heroConfig.overline}
             headline={heroConfig.headline}
             gradientText={heroConfig.gradientText}
             headlineSuffix={heroConfig.headlineSuffix}
             description={heroConfig.description}
-            proofLine={heroConfig.proofLine}
             ctas={heroConfig.ctas}
           />
           <TrustLogoCloudBlock />

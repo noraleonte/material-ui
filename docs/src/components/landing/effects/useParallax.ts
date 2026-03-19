@@ -12,7 +12,9 @@ export default function useParallax(speed = 0.15) {
 
   React.useEffect(() => {
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mq.matches) return undefined;
+    if (mq.matches) {
+      return undefined;
+    }
 
     let ticking = false;
     const onScroll = () => {
